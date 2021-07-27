@@ -1,4 +1,5 @@
 import thingShadows from './awsConfig';
+// import device from './awsDevice';
 
 export default class awsService {
 
@@ -8,6 +9,7 @@ export default class awsService {
      */
     constructor() {
         this.thingShadows = thingShadows;
+        // this.thingShadows = device;
     }
 }
   

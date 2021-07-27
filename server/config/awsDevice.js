@@ -12,13 +12,17 @@ const device = awsIot.device({
 });
 
 device.on('connect', () => {
-  console.log('Connected to AWS IoT');
-  device.subscribe('topic_3');
+  console.log('Connected to AWS IoT Device');
+  // device.subscribe('topic_3');
   device.publish('topic_2', JSON.stringify({ data: 1}));
 });
 
 device.on('message',(topic, payload) => {
     console.log('message', topic, payload.toString());
 })
+
+setInterval(() => {
+  device.publish('topic_2', JSON.stringify({ message: 'message send from AWS device'}))
+}, 10000);
 
 export default device;
